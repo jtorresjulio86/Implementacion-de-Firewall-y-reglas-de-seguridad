@@ -35,3 +35,9 @@ Idioma: Español
 Nombre del servidor: openstack(de cualquier nombre)
 Usuario: admin(o el usuario de preferencia)
 Contraseña: (algo corto)
+
+https://github.com/user-attachments/assets/563c636c-0961-4f48-a650-70b97006bf13
+
+
+🌐 PASO 2. Configurar IP fija en Ubuntu
+
