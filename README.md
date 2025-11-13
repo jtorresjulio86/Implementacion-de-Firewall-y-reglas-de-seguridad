@@ -40,4 +40,66 @@ https://github.com/user-attachments/assets/563c636c-0961-4f48-a650-70b97006bf13
 
 
 🌐 PASO 2. Configurar IP fija en Ubuntu
+Objetivo
+
+Asegurar una IP estable para acceder al panel de OpenStack desde Windows.
+
+Acciones
+
+Dentro de Ubuntu, ejecutar:
+
+ip a
+
+
+Para identificar los nombres de las interfaces (enp0s3, enp0s8, etc.)
+
+Editar el archivo de configuración:
+
+sudo nano /etc/netplan/00-installer-config.yaml
+
+
+Configurar la IP fija en enp0s8 (red interna):
+
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      dhcp4: no
+      addresses:
+        - 192.168.100.10/24
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1]
+  version: 2
+
+
+Aplicar los cambios:
+
+sudo netplan apply
+
+
+Confirmar:
+
+ip a s enp0s8
+
+
+https://github.com/user-attachments/assets/df365e91-b014-4209-8b77-b149e392f245
+
+
+
+→ Debe mostrar 192.168.100.10/24
+
+En Windows, asignar IP al adaptador “VirtualBox Host-Only Network”:
+
+IP: 192.168.100.20
+Máscara: 255.255.255.0
+DNS: 8.8.8.8
+
+
+Probar conexión desde Windows:
+
+ping 192.168.100.10
+
+
+Si responde, tienes red interna activa.
 
