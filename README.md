@@ -103,3 +103,35 @@ ping 192.168.100.10
 
 Si responde, tienes red interna activa.
 
+##  Paso 3. ENTRAR por PuTTY a tu máquina Ubuntu
+Abre PuTTY:
+
+Host Name: 192.168.100.10
+
+Port: 22
+
+Connection type: SSH
+
+Clic en Open.
+
+
+https://github.com/user-attachments/assets/21258a8e-e6d0-48ac-a39f-e705c0f1e8b3
+
+Paso 4. Instalar Microstack desde putty
+
+#### (si no eres root)
+sudo -i
+
+#### actualizar sistema
+apt update && apt upgrade -y
+
+#### instalar snapd si no está
+apt install -y snapd
+
+#### instalar microstack (usa --beta, recomendado para lab)
+snap install microstack --beta
+
+#### inicializar microstack (esto puede tardar 10–60 min)
+#### (no interrumpas; espera a que termine)
+sudo microstack init --auto --control
+
