@@ -117,7 +117,7 @@ Clic en Open.
 
 https://github.com/user-attachments/assets/21258a8e-e6d0-48ac-a39f-e705c0f1e8b3
 
-Paso 4. Instalar Microstack desde putty
+## Paso 4. Instalar Microstack desde putty
 
 #### (si no eres root)
 sudo -i
@@ -135,3 +135,55 @@ snap install microstack --beta
 #### (no interrumpas; espera a que termine)
 sudo microstack init --auto --control
 
+## Paso 5. Acceder a OpenStack (Dashboard)
+Abrir el navegador en Windows: https://192.168.100.10
+
+## Paso 6. Crear Security Group Protegido
+En el OpenStack:
+Ir a Project → Network → Security Groups → Create Security Group:
+- Nombre: firewall-jtorres
+- Editar reglas → Eliminar todas las reglas de Ingress. Mantener solo Egress (salida). Esto bloquea toda entrada pero permite salida a Internet.
+
+## Paso 7. Crear Red Interna
+
+Project → Network → Networks → Create Network
+
+Nombre: red-interna
+
+Subred: 192.168.50.0/24
+
+## Paso 8. Crear la instancia protegida
+
+Project → Compute → Instances → Launch Instance
+
+Configuración:
+- Name: vm-jtorres
+- Image: cirros
+- Flavor: m1.tiny
+- Network: red-interna
+- Security Group: firewall-jtorres
+- Keypair: crear myykey
+
+Verificar desde CLI: sudo microstack.openstack server list
+Ejemplo de IP asignada: red-interna=192.168.50.168
+
+## Paso 9. Pruebas de Firewall
+❌ 1. Ping desde Windows → VM : ping 192.168.50.168
+Resultado esperado: Host inaccesible
+❌ 2. SSH desde Windows → VM: ssh cirros@192.168.50.168
+Resultado esperado: Connection timed out
+✔ 3. Ping desde VM → Internet. En consola de Cirros: ping 8.8.8.8 
+Resultado esperado: Exitoso (egress permitido)
+
+
+## CONCLUSIÓN
+
+Se implementó un entorno mínimo de OpenStack con MicroStack.
+
+Se configuró una red interna segura.
+
+Se creó un Security Group que bloquea todo el tráfico entrante.
+
+La instancia vm-jtorres quedó totalmente protegida.
+
+Todas las pruebas de seguridad fueron exitosas.
