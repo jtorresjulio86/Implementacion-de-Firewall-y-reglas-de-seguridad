@@ -187,3 +187,6 @@ Se creó un Security Group que bloquea todo el tráfico entrante.
 La instancia vm-jtorres quedó totalmente protegida.
 
 Todas las pruebas de seguridad fueron exitosas.
+
+## Link de video en youtube: [Implementación de Firewall y reglas de seguridad Jose Torres](https://youtu.be/NRXGVJCAG2A)
+
