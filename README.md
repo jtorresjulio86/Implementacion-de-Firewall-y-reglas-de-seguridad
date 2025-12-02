@@ -302,6 +302,6 @@ Resultado esperado: Exitoso (egress permitido)
 Este tipo de configuración se utiliza en nubes privadas, producción y ambientes corporativos para proteger recursos internos.
 
 ## Link de video en youtube para ver mejora la teoria implementada en la practica: [Implementación de Firewall y reglas de seguridad Jose Torres](https://youtu.be/NRXGVJCAG2A)
-## Documentacion adicional y explicacion teorica: [Uploading Grupo9_Firewall_JoseTorres.pdf…]()
+## Documentacion adicional y explicacion teorica: [Ver aqui documente Jose Torres](https://drive.google.com/file/d/16AMy5QHyGY919uOBYV4MaqqR2bfjuqRe/view?usp=sharing)
 
 
