@@ -70,19 +70,8 @@ Esto permite crear máquinas completamente aisladas del exterior.
 
 # 🌐 5. Topologías de Red Usadas en el Proyecto
 
-Windows Host
-   │
-   ├── Adaptador Host-Only (192.168.100.20)
-   │       │
-   │       └── Ubuntu Server (192.168.100.10)
-   │               │
-   │               ├── MicroStack / OpenStack
-   │               │
-   │               └── red-interna (192.168.50.0/24)
-   │                        │
-   │                        └── vm-jtorres (192.168.50.168)
-   │
-   └── Adaptador Puente (Internet)
+<img width="505" height="338" alt="Captura de pantalla 2025-12-02 143410" src="https://github.com/user-attachments/assets/f8a87d5d-651b-4e4d-b5ad-ddf2c3583c8c" />
+
 
 # 🏗 6. Escenarios de Aplicación de Firewalls
 
