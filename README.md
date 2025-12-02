@@ -1,4 +1,4 @@
-# 🔥 Implementación de Firewall y Reglas de Seguridad en OpenStack (MicroStack)
+#  Implementación de Firewall y Reglas de Seguridad en OpenStack (MicroStack)
 
 **Autor:** José Torres  
 **Curso:** CONFIGURACION DE REDES – Grupo 9  
@@ -6,7 +6,7 @@
 
 ---
 
-# 🌐 1. Introducción
+#  1. Introducción
 
 En los entornos de computación en la nube, la seguridad perimetral y la segmentación de red son elementos fundamentales para garantizar que las máquinas virtuales permanezcan protegidas contra accesos no autorizados.  
 OpenStack, a través del componente Neutron, proporciona *Security Groups*, un mecanismo de firewall virtual que filtra el tráfico de red de cada instancia.
@@ -15,7 +15,7 @@ Este laboratorio implementa un entorno completo usando Ubuntu Server + MicroStac
 
 ---
 
-# 🧠 2. Conceptos Fundamentales de Seguridad en Redes
+#  2. Conceptos Fundamentales de Seguridad en Redes
 
 ## 🔒 Seguridad de red
 Conjunto de técnicas, políticas y mecanismos diseñados para proteger:
@@ -25,7 +25,7 @@ Conjunto de técnicas, políticas y mecanismos diseñados para proteger:
 
 Incluye filtrado, segmentación, inspección de tráfico, control de acceso y límites perimetrales.
 
-## 🔥 Firewall
+##  Firewall
 Un firewall es un sistema que **supervisa, filtra y controla** el tráfico entre redes según reglas predefinidas.
 
 ### Funciones principales:
@@ -36,7 +36,7 @@ Un firewall es un sistema que **supervisa, filtra y controla** el tráfico entre
 
 ---
 
-# 🛡 3. Tipos de Firewalls
+#  3. Tipos de Firewalls
 
 ### 1️⃣ Filtrado de paquetes (L3/L4)
 Analiza IP, puertos y protocolos.  
@@ -54,7 +54,7 @@ Ejemplo: Security Groups en OpenStack.
 
 ---
 
-# 🛰 4. Security Groups en OpenStack
+#  4. Security Groups en OpenStack
 
 Un **Security Group** es un firewall virtual administrado por Neutron que actúa directamente sobre las interfaces de las instancias.
 
@@ -68,12 +68,12 @@ Esto permite crear máquinas completamente aisladas del exterior.
 
 ---
 
-# 🌐 5. Topologías de Red Usadas en el Proyecto
+#  5. Topologías de Red Usadas en el Proyecto
 
 <img width="505" height="338" alt="Captura de pantalla 2025-12-02 143410" src="https://github.com/user-attachments/assets/f8a87d5d-651b-4e4d-b5ad-ddf2c3583c8c" />
 
 
-# 🏗 6. Escenarios de Aplicación de Firewalls
+#  6. Escenarios de Aplicación de Firewalls
 
 **Escenario 1: Servidor aislado (como tu VM)**
 
@@ -107,7 +107,7 @@ SSH solo desde IP del administrador
 
 Todo lo demás bloqueado.
 
-# 🧪 7. Reglas a implementar
+#  7. Reglas a implementar
 - Ingress (entrante): Bloqueado: todo
 - Egress (saliente): Permitido: todo
 Resultado:
@@ -117,7 +117,7 @@ Desde Windows → VM = bloqueado ✔
 Desde VM → Internet = permitido ✔
 
 
-## 🧩 OBJETIVO DE LA GUIA
+##  OBJETIVO DE LA GUIA
 🔰 Instalar un entorno mínimo con OpenStack (Microstack) en Ubuntu dentro de VirtualBox
 🔰 Crear una instancia (máquina virtual dentro de OpenStack)
 🔰 Configurar y probar reglas de firewall (grupos de seguridad)
@@ -302,4 +302,6 @@ Resultado esperado: Exitoso (egress permitido)
 Este tipo de configuración se utiliza en nubes privadas, producción y ambientes corporativos para proteger recursos internos.
 
 ## Link de video en youtube para ver mejora la teoria implementada en la practica: [Implementación de Firewall y reglas de seguridad Jose Torres](https://youtu.be/NRXGVJCAG2A)
+## Documentacion adicional y explicacion teorica: [Uploading Grupo9_Firewall_JoseTorres.pdf…]()
+
 
