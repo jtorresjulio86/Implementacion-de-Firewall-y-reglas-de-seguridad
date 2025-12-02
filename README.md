@@ -305,7 +305,7 @@ Este tipo de configuración se utiliza en nubes privadas, producción y ambiente
 ## Documentacion adicional y explicacion teorica:
 **Vista Previa**
 <img width="1493" height="792" alt="Captura de pantalla 2025-12-02 153405" src="https://github.com/user-attachments/assets/a5f88db1-711d-43a7-9837-91b4ff14458a" />
-
+<iframe src="https://drive.google.com/file/d/16AMy5QHyGY919uOBYV4MaqqR2bfjuqRe/view?usp=sharing" width="100%" height="600px"></iframe>
 [Ver documento completo](https://drive.google.com/file/d/16AMy5QHyGY919uOBYV4MaqqR2bfjuqRe/view?usp=sharing) 
 
 
