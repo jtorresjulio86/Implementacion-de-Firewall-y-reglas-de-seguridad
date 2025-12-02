@@ -1,9 +1,134 @@
-# Implementacion-de-Firewall-y-reglas-de-seguridad
+# 🔥 Implementación de Firewall y Reglas de Seguridad en OpenStack (MicroStack)
 
-## Integrantes: 
-- **Jose Torres**
+**Autor:** José Torres  
+**Curso:** CONFIGURACION DE REDES – Grupo 9  
+**Tema:** Implementación de firewall virtual y reglas de seguridad en entorno OpenStack.
 
-## 🧩 OBJETIVO
+---
+
+# 🌐 1. Introducción
+
+En los entornos de computación en la nube, la seguridad perimetral y la segmentación de red son elementos fundamentales para garantizar que las máquinas virtuales permanezcan protegidas contra accesos no autorizados.  
+OpenStack, a través del componente Neutron, proporciona *Security Groups*, un mecanismo de firewall virtual que filtra el tráfico de red de cada instancia.
+
+Este laboratorio implementa un entorno completo usando Ubuntu Server + MicroStack, donde se configura una topología de red, se crea un firewall personalizado y se validan reglas de seguridad con pruebas reales.
+
+---
+
+# 🧠 2. Conceptos Fundamentales de Seguridad en Redes
+
+## 🔒 Seguridad de red
+Conjunto de técnicas, políticas y mecanismos diseñados para proteger:
+- **Confidencialidad**
+- **Integridad**
+- **Disponibilidad**
+
+Incluye filtrado, segmentación, inspección de tráfico, control de acceso y límites perimetrales.
+
+## 🔥 Firewall
+Un firewall es un sistema que **supervisa, filtra y controla** el tráfico entre redes según reglas predefinidas.
+
+### Funciones principales:
+- Prevenir accesos no autorizados
+- Controlar servicios expuestos
+- Proteger redes internas
+- Segmentar zonas por nivel de confianza
+
+---
+
+# 🛡 3. Tipos de Firewalls
+
+### 1️⃣ Filtrado de paquetes (L3/L4)
+Analiza IP, puertos y protocolos.  
+Usado en routers, switches y firewalls tradicionales.
+
+### 2️⃣ Firewall con inspección de estado (Stateful)
+Registra conexiones y permite respuestas únicamente si salieron desde la red interna.
+
+### 3️⃣ Firewall de aplicación (L7)
+Analiza contenido HTTP, DNS, SMTP, etc.
+
+### 4️⃣ Firewalls virtuales en la nube
+No existen físicamente; controlan tráfico entre máquinas virtuales.  
+Ejemplo: Security Groups en OpenStack.
+
+---
+
+# 🛰 4. Security Groups en OpenStack
+
+Un **Security Group** es un firewall virtual administrado por Neutron que actúa directamente sobre las interfaces de las instancias.
+
+Características:
+- Regula tráfico **ingress** (entrante) y **egress** (saliente).
+- Por defecto: bloquea ingress y permite egress.
+- Es *stateful*: si una instancia inicia una conexión saliente, la respuesta es permitida.
+- Puede aplicarse a una o varias instancias.
+
+Esto permite crear máquinas completamente aisladas del exterior.
+
+---
+
+# 🌐 5. Topologías de Red Usadas en el Proyecto
+
+Windows Host
+   │
+   ├── Adaptador Host-Only (192.168.100.20)
+   │       │
+   │       └── Ubuntu Server (192.168.100.10)
+   │               │
+   │               ├── MicroStack / OpenStack
+   │               │
+   │               └── red-interna (192.168.50.0/24)
+   │                        │
+   │                        └── vm-jtorres (192.168.50.168)
+   │
+   └── Adaptador Puente (Internet)
+
+# 🏗 6. Escenarios de Aplicación de Firewalls
+
+**Escenario 1: Servidor aislado (como tu VM)**
+
+Regla:
+
+❌ Bloquear ICMP entrante
+
+❌ Bloquear SSH entrante
+
+✔ Permitir salida a Internet
+
+Aplicación:
+
+Servidor protegido para pruebas.
+
+**Escenario 2: Servidor web público**
+
+Reglas:
+
+✔ Permitir HTTP (80)
+
+✔ Permitir HTTPS (443)
+
+❌ Bloquear SSH, ICMP, puertos internos
+
+**Escenario 3: Red privada con salt-server**
+
+Reglas:
+
+SSH solo desde IP del administrador
+
+Todo lo demás bloqueado.
+
+# 🧪 7. Reglas a implementar
+- Ingress (entrante): Bloqueado: todo
+- Egress (saliente): Permitido: todo
+Resultado:
+
+Desde Windows → VM = bloqueado ✔
+
+Desde VM → Internet = permitido ✔
+
+
+## 🧩 OBJETIVO DE LA GUIA
 🔰 Instalar un entorno mínimo con OpenStack (Microstack) en Ubuntu dentro de VirtualBox
 🔰 Crear una instancia (máquina virtual dentro de OpenStack)
 🔰 Configurar y probar reglas de firewall (grupos de seguridad)
@@ -176,17 +301,16 @@ Resultado esperado: Connection timed out
 Resultado esperado: Exitoso (egress permitido)
 
 
-## CONCLUSIÓN
+## Conclusión General
 
-Se implementó un entorno mínimo de OpenStack con MicroStack.
+ ### El proyecto implementó:
+- Un firewall virtual efectivo
+- Tráfico entrante completamente bloqueado
+- Tráfico saliente permitido
+- Instancia protegida mediante modelo stateful
+- Arquitectura de red segmentada
 
-Se configuró una red interna segura.
+Este tipo de configuración se utiliza en nubes privadas, producción y ambientes corporativos para proteger recursos internos.
 
-Se creó un Security Group que bloquea todo el tráfico entrante.
-
-La instancia vm-jtorres quedó totalmente protegida.
-
-Todas las pruebas de seguridad fueron exitosas.
-
-## Link de video en youtube: [Implementación de Firewall y reglas de seguridad Jose Torres](https://youtu.be/NRXGVJCAG2A)
+## Link de video en youtube para ver mejora la teoria implementada en la practica: [Implementación de Firewall y reglas de seguridad Jose Torres](https://youtu.be/NRXGVJCAG2A)
 
